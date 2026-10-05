@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Wave</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span>♫</span> Music Wave
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#explora">Explora</a>
+            <a href="#biblioteca">Biblioteca</a>
+            <a href="#youtube">YouTube Music</a>
+        </nav>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar música...">
+            <button id="searchBtn">🔍</button>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- INICIO -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <p class="small-title">TU MÚSICA, TU MOMENTO</p>
+                <h1>Feel the <span>Music</span></h1>
+                <p>
+                    Descubre canciones, crea tu biblioteca y disfruta
+                    de tus ritmos favoritos con Music Wave.
+                </p>
+
+                <button class="main-btn" onclick="scrollToSection('explora')">
+                    Explorar música
+                </button>
+            </div>
+
+            <div class="hero-circle">
+                <div class="vinyl">
+                    <div class="vinyl-center">♫</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- EXPLORA -->
+        <section id="explora" class="section">
+
+            <div class="section-title">
+                <div>
+                    <p class="small-title">DESCUBRE</p>
+                    <h2>Explora música</h2>
+                </div>
+            </div>
+
+            <div class="filters">
+                <button class="filter active" data-filter="all">Todo</button>
+                <button class="filter" data-filter="pop">Pop</button>
+                <button class="filter" data-filter="rock">Rock</button>
+                <button class="filter" data-filter="bachata">Bachata</button>
+                <button class="filter" data-filter="summer">Summer</button>
+            </div>
+
+
+            <div class="music-grid" id="musicGrid">
+
+                <article class="music-card" data-category="pop"
+                    data-title="Pop Dreams"
+                    data-artist="Music Wave">
+                    <div class="album pop">
+                        <span>♫</span>
+                    </div>
+
+                    <div class="music-info">
+                        <h3>Pop Dreams</h3>
+                        <p>Music Wave</p>
+
+                        <div class="card-bottom">
+                            <span>Pop</span>
+                            <button class="play-card"
+                                onclick="playSong(0)">▶</button>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="music-card" data-category="rock"
+                    data-title="Rock Night"
+                    data-artist="Music Wave">
+                    <div class="album rock">
+                        <span>♫</span>
+                    </div>
+
+                    <div class="music-info">
+                        <h3>Rock Night</h3>
+                        <p>Music Wave</p>
+
+                        <div class="card-bottom">
+                            <span>Rock</span>
+                            <button class="play-card"
+                                onclick="playSong(1)">▶</button>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="music-card" data-category="bachata"
+                    data-title="Bachata Love"
+                    data-artist="Music Wave">
+                    <div class="album bachata">
+                        <span>♫</span>
+                    </div>
+
+                    <div class="music-info">
+                        <h3>Bachata Love</h3>
+                        <p>Music Wave</p>
+
+                        <div class="card-bottom">
+                            <span>Bachata</span>
+                            <button class="play-card"
+                                onclick="playSong(2)">▶</button>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="music-card" data-category="summer"
+                    data-title="Summer Beat"
+                    data-artist="Music Wave">
+                    <div class="album summer">
+                        <span>♫</span>
+                    </div>
+
+                    <div class="music-info">
+                        <h3>Summer Beat</h3>
+                        <p>Music Wave</p>
+
+                        <div class="card-bottom">
+                            <span>Summer</span>
+                            <button class="play-card"
+                                onclick="playSong(3)">▶</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <p id="noResults" class="no-results">
+                No se encontraron canciones.
+            </p>
+
+        </section>
+
+
+        <!-- BIBLIOTECA -->
+        <section id="biblioteca" class="section library">
+
+            <div class="section-title">
+                <div>
+                    <p class="small-title">TU COLECCIÓN</p>
+                    <h2>Mi biblioteca</h2>
+                </div>
+            </div>
+
+            <div class="library-box">
+
+                <div class="library-icon">♡</div>
+
+                <div>
+                    <h3>Tus canciones favoritas</h3>
+                    <p>
+                        Guarda tus canciones favoritas y accede a ellas
+                        rápidamente.
+                    </p>
+                </div>
+
+                <div class="favorite-count">
+                    <strong id="favoriteCount">0</strong>
+                    <span>favoritos</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- YOUTUBE MUSIC -->
+        <section id="youtube" class="youtube-section">
+
+            <div class="youtube-content">
+
+                <p class="small-title">MÁS MÚSICA</p>
+
+                <h2>Continúa escuchando en<br>
+                    <span>YouTube Music</span>
+                </h2>
+
+                <p>
+                    Encuentra más canciones, artistas y playlists
+                    directamente en YouTube Music.
+                </p>
+
+                <button class="youtube-btn" onclick="openYouTube()">
+                    Abrir YouTube Music ↗
+                </button>
+
+            </div>
+
+            <div class="youtube-icon">
+                ▶
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- REPRODUCTOR -->
+    <div class="player">
+
+        <div class="current-song">
+
+            <div class="mini-cover" id="miniCover">
+                ♫
+            </div>
+
+            <div>
+                <h4 id="currentTitle">Pop Dreams</h4>
+                <p id="currentArtist">Music Wave</p>
+            </div>
+
+        </div>
+
+
+        <div class="player-controls">
+
+            <button onclick="previousSong()">⏮</button>
+
+            <button class="play-main" id="playButton"
+                onclick="togglePlay()">▶</button>
+
+            <button onclick="nextSong()">⏭</button>
+
+        </div>
+
+
+        <div class="progress-container">
+
+            <span id="currentTime">0:00</span>
+
+            <input
+                type="range"
+                id="progressBar"
+                min="0"
+                max="100"
+                value="0"
+            >
+
+            <span id="duration">3:45</span>
+
+        </div>
+
+
+        <button class="favorite-player"
+            id="favoriteButton"
+            onclick="toggleFavorite()">
+            ♡
+        </button>
+
+    </div>
+
+
+    <footer>
+        <div class="footer-logo">♫ Music Wave</div>
+        <p>Tu música. Tu mundo. Tu momento.</p>
+        <p class="copyright">© 2026 Music Wave</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
